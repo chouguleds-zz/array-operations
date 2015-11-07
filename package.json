@@ -1,0 +1,22 @@
+{
+  "name": "array-operations",
+  "version": "1.0.0",
+  "description": "This is utility module for fastest array operations",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chouguleds/array-operations.git"
+  },
+  "keywords": [
+    "array"
+  ],
+  "author": "Deepak Chougule <chougule.ds@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chouguleds/array-operations/issues"
+  },
+  "homepage": "https://github.com/chouguleds/array-operations#readme"
+}

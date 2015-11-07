@@ -66,6 +66,24 @@ exports.intersection = function(arr1, arr2) {
 	return result;
 }
 
+exports.removeDuplicates = function(arr) {
+
+	var array = {};
+	if (!isArray(arr)) {
+
+		throw new TypeError("Invalid argument, Please pass proper array argument");
+	}
+
+	var result = [];
+	for (var i = 0; i < arr.length; i++) {
+		if (array[arr[i]] === undefined) {
+			array[arr[i]] = arr[i];
+			result.push(arr[i])
+		}
+	}
+	return result;
+}
+
 /*exports.sum = function(arr) {
 	var result=0;
 	for(var i=0;i<arr.length;i++)

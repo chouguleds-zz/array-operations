@@ -5,6 +5,13 @@ function isArray(arr) {
 	else
 		return false;
 }
+function isFunction(fun) {
+
+	if (typeof fun === "function") 
+		return true;
+	else
+		return false;
+}
 
 exports.difference = function(arr1, arr2) {
 
@@ -80,6 +87,27 @@ exports.removeDuplicates = function(arr) {
 			array[arr[i]] = arr[i];
 			result.push(arr[i])
 		}
+	}
+	return result;
+}
+
+exports.filter = function(arr,condition) {
+
+	if (!isArray(arr)) {
+
+		throw new TypeError("Invalid argument, Please pass proper array argument");
+	}
+
+	if (!isFunction(condition)) {
+
+		throw new TypeError("Invalid argument, Please pass proper function");
+	}
+	var result = [];
+	for(var i=0;i<arr.length;i++)
+	{
+		if(condition(arr[i])){
+			result.push(arr[i])
+		} 
 	}
 	return result;
 }

@@ -143,3 +143,19 @@ exports.forEachPerform = function(arr,condition) {
 	}
 	return result;
 }
+
+exports.min = function(arr) {
+
+	if (!isArray(arr)) {
+
+		throw new TypeError("Invalid argument, Please pass proper array argument");
+	}
+
+	var min=arr[0];
+	for(var i=0;i<arr.length;i++)
+	{
+		if(arr[i]<min)
+			min=arr[i];
+	}
+	return min;
+}

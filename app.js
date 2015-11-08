@@ -159,3 +159,19 @@ exports.min = function(arr) {
 	}
 	return min;
 }
+
+exports.max = function(arr) {
+
+	if (!isArray(arr)) {
+
+		throw new TypeError("Invalid argument, Please pass proper array argument");
+	}
+
+	var max=arr[0];
+	for(var i=0;i<arr.length;i++)
+	{
+		if(arr[i]>max)
+			max=arr[i];
+	}
+	return max;
+}

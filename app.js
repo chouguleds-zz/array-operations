@@ -175,3 +175,15 @@ exports.max = function(arr) {
 	}
 	return max;
 }
+
+exports.average = function(arr) {
+
+	if (!isArray(arr)) {
+
+		throw new TypeError("Invalid argument, Please pass proper array argument");
+	}
+
+	var average=(this.sum(arr)/arr.length);
+	
+	return average;
+}

@@ -124,3 +124,22 @@ exports.sum = function(arr) {
 	
 	return result;
 }
+
+exports.forEachPerform = function(arr,condition) {
+
+	if (!isArray(arr)) {
+
+		throw new TypeError("Invalid argument, Please pass proper array argument");
+	}
+
+	if (!isFunction(condition)) {
+
+		throw new TypeError("Invalid argument, Please pass proper function");
+	}
+	var result = [];
+	for(var i=0;i<arr.length;i++)
+	{
+			result.push(condition(arr[i]))
+	}
+	return result;
+}

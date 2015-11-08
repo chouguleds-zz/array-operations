@@ -112,10 +112,15 @@ exports.filter = function(arr,condition) {
 	return result;
 }
 
-/*exports.sum = function(arr) {
+exports.sum = function(arr) {
+
+	if (!isArray(arr)) {
+
+		throw new TypeError("Invalid argument, Please pass proper array argument");
+	}
 	var result=0;
 	for(var i=0;i<arr.length;i++)
 		result+=arr[i];
 	
 	return result;
-}*/
+}

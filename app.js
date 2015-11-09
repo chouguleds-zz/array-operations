@@ -204,3 +204,13 @@ exports.areEqual = function(arr1,arr2) {
 	}
 	return true;
 }
+
+exports.areDistinct = function(arr1,arr2) {
+
+	if (!isArray(arr1) || !isArray(arr2)) {
+
+		throw new TypeError("Invalid argument, Please pass proper array argument");
+	}
+	return (!this.areEqual(arr1,arr2));
+
+}

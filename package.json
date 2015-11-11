@@ -1,8 +1,9 @@
 {
   "name": "array-operations",
   "version": "1.0.0",
-  "description": "This is utility module for fastest array operations",
+  "description": "This is JavaScript module for fastest array operations",
   "main": "app.js",
+  "readmeFilename": "README.md",
   "scripts": {
     "test": "mocha test",
     "start":"node app.js"
@@ -12,10 +13,14 @@
     "url": "git+https://github.com/chouguleds/array-operations.git"
   },
   "keywords": [
-    "array"
+    "array",
+    "set",
+    "operations",
+    "difference",
+    "fastest array functions"
   ],
   "author": "Deepak Chougule <chougule.ds@gmail.com>",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/chouguleds/array-operations/issues"
   },

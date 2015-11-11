@@ -118,8 +118,10 @@ exports.sum = function(arr) {
 
 		throw new TypeError("Invalid argument, Please pass proper array argument");
 	}
-	var result=0;
-	for(var i=0;i<arr.length;i++)
+	if(arr.length===0)
+		return 0;
+	var result=arr[0];
+	for(var i=1;i<arr.length;i++)
 		result+=arr[i];
 	
 	return result;
@@ -182,8 +184,13 @@ exports.average = function(arr) {
 
 		throw new TypeError("Invalid argument, Please pass proper array argument");
 	}
-
-	var average=(this.sum(arr)/arr.length);
+		if(arr.length===0)
+		return 0;
+	var total=this.sum(arr);
+	if(typeof total==="number")
+	 var average=(total/arr.length);
+	else
+		throw Error("Array contains Non-numbers");
 	
 	return average;
 }

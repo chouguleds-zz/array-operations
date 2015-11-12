@@ -259,6 +259,7 @@ describe('Array-Operations', function() {
 			assert.deepEqual([4, 5], array.intersection([1, 2, 3, 4, 5], [4, 5, 6, 7, 8]));
 			assert.deepEqual(["b", 1], array.intersection(["A", "b", 1], ["b", 1, 2]));
 			assert.deepEqual(["c"], array.intersection(["a", "b", "c"], ["c", "d", "e"]));
+			assert.deepEqual([1,2,3,4], array.intersection([1,2,2,3,1,2,4], [1,2,3,4,5,1]));
 		});
 
 	});
@@ -277,6 +278,7 @@ describe('Array-Operations', function() {
 			assert.deepEqual([1, 2, 3, 4, 5, 6, 7, 8], array.union([1, 2, 3, 4, 5], [4, 5, 6, 7, 8]));
 			assert.deepEqual(["A", "b", 1, 2], array.union(["A", "b", 1], ["b", 1, 2]));
 			assert.deepEqual(["a", "b", "c", "d", "e"], array.union(["a", "b", "c"], ["c", "d", "e"]));
+			assert.deepEqual([1,2,3,4,5], array.union([1,2,2,3,1,2,4], [1,2,3,4,5,1]));
 		});
 
 	});

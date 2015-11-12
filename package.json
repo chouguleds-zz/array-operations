@@ -14,10 +14,20 @@
   },
   "keywords": [
     "array",
+    "fast array",
     "set",
+    "hash",
+    "set operations",
+    "fastest array functions",
     "operations",
-    "difference",
-    "fastest array functions"
+    "array difference",
+    "array unique",
+    "filter",
+    "manipulation",
+    "for each perform",
+    "fast array functions",
+    "array functions",
+    "array util"
   ],
   "author": "Deepak Chougule <chougule.ds@gmail.com>",
   "license": "MIT",

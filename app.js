@@ -5,9 +5,10 @@ function isArray(arr) {
 	else
 		return false;
 }
+
 function isFunction(fun) {
 
-	if (typeof fun === "function") 
+	if (typeof fun === "function")
 		return true;
 	else
 		return false;
@@ -42,13 +43,20 @@ exports.union = function(arr1, arr2) {
 
 	var result = [];
 	for (var i = 0; i < arr1.length; i++) {
-		array[arr1[i]] = arr1[i];
-		result.push(arr1[i])
+
+		if (array[arr1[i]] === undefined) {
+			array[arr1[i]] = arr1[i];
+			result.push(arr1[i])
+		}
 	}
 
 	for (var i = 0; i < arr2.length; i++) {
-		if (array[arr2[i]] === undefined)
+
+		if (array[arr2[i]] === undefined) {
+
 			result.push(arr2[i])
+			array[arr2[i]] = arr2[i];
+		}
 	}
 	return result;
 }
@@ -63,12 +71,17 @@ exports.intersection = function(arr1, arr2) {
 
 	var result = [];
 	for (var i = 0; i < arr1.length; i++) {
-		array[arr1[i]] = arr1[i];
+
+		if (array[arr1[i]] === undefined)
+			array[arr1[i]] = arr1[i];
 	}
 
 	for (var i = 0; i < arr2.length; i++) {
-		if (array[arr2[i]] !== undefined)
+		if (array[arr2[i]] !== undefined) {
+
 			result.push(arr2[i])
+			delete array[arr2[i]];
+		}
 	}
 	return result;
 }
@@ -91,7 +104,7 @@ exports.removeDuplicates = function(arr) {
 	return result;
 }
 
-exports.filter = function(arr,condition) {
+exports.filter = function(arr, condition) {
 
 	if (!isArray(arr)) {
 
@@ -103,11 +116,10 @@ exports.filter = function(arr,condition) {
 		throw new TypeError("Invalid argument, Please pass proper function");
 	}
 	var result = [];
-	for(var i=0;i<arr.length;i++)
-	{
-		if(condition(arr[i])){
+	for (var i = 0; i < arr.length; i++) {
+		if (condition(arr[i])) {
 			result.push(arr[i])
-		} 
+		}
 	}
 	return result;
 }
@@ -118,16 +130,16 @@ exports.sum = function(arr) {
 
 		throw new TypeError("Invalid argument, Please pass proper array argument");
 	}
-	if(arr.length===0)
+	if (arr.length === 0)
 		return 0;
-	var result=arr[0];
-	for(var i=1;i<arr.length;i++)
-		result+=arr[i];
-	
+	var result = arr[0];
+	for (var i = 1; i < arr.length; i++)
+		result += arr[i];
+
 	return result;
 }
 
-exports.forEachPerform = function(arr,condition) {
+exports.forEachPerform = function(arr, condition) {
 
 	if (!isArray(arr)) {
 
@@ -139,9 +151,8 @@ exports.forEachPerform = function(arr,condition) {
 		throw new TypeError("Invalid argument, Please pass proper function");
 	}
 	var result = [];
-	for(var i=0;i<arr.length;i++)
-	{
-			result.push(condition(arr[i]))
+	for (var i = 0; i < arr.length; i++) {
+		result.push(condition(arr[i]))
 	}
 	return result;
 }
@@ -153,11 +164,10 @@ exports.min = function(arr) {
 		throw new TypeError("Invalid argument, Please pass proper array argument");
 	}
 
-	var min=arr[0];
-	for(var i=0;i<arr.length;i++)
-	{
-		if(arr[i]<min)
-			min=arr[i];
+	var min = arr[0];
+	for (var i = 0; i < arr.length; i++) {
+		if (arr[i] < min)
+			min = arr[i];
 	}
 	return min;
 }
@@ -169,11 +179,10 @@ exports.max = function(arr) {
 		throw new TypeError("Invalid argument, Please pass proper array argument");
 	}
 
-	var max=arr[0];
-	for(var i=0;i<arr.length;i++)
-	{
-		if(arr[i]>max)
-			max=arr[i];
+	var max = arr[0];
+	for (var i = 0; i < arr.length; i++) {
+		if (arr[i] > max)
+			max = arr[i];
 	}
 	return max;
 }
@@ -184,40 +193,40 @@ exports.average = function(arr) {
 
 		throw new TypeError("Invalid argument, Please pass proper array argument");
 	}
-		if(arr.length===0)
+	if (arr.length === 0)
 		return 0;
-	var total=this.sum(arr);
-	if(typeof total==="number")
-	 var average=(total/arr.length);
+	var total = this.sum(arr);
+	if (typeof total === "number")
+		var average = (total / arr.length);
 	else
 		throw Error("Array contains Non-numbers");
-	
+
 	return average;
 }
 
-exports.areEqual = function(arr1,arr2) {
+exports.areEqual = function(arr1, arr2) {
 
 	if (!isArray(arr1) || !isArray(arr2)) {
 
 		throw new TypeError("Invalid argument, Please pass proper array argument");
 	}
 
-	if(arr1.length!==arr2.length)
+	if (arr1.length !== arr2.length)
 		return false;
-	for(var i=0;i<arr1.length;i++){
+	for (var i = 0; i < arr1.length; i++) {
 
-		if(arr1[i]!==arr2[i])
+		if (arr1[i] !== arr2[i])
 			return false;
 	}
 	return true;
 }
 
-exports.areDistinct = function(arr1,arr2) {
+exports.areDistinct = function(arr1, arr2) {
 
 	if (!isArray(arr1) || !isArray(arr2)) {
 
 		throw new TypeError("Invalid argument, Please pass proper array argument");
 	}
-	return (!this.areEqual(arr1,arr2));
+	return (!this.areEqual(arr1, arr2));
 
 }

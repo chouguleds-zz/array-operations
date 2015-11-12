@@ -1,12 +1,12 @@
 {
   "name": "array-operations",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "This is JavaScript module for fastest array operations",
   "main": "app.js",
   "readmeFilename": "README.md",
   "scripts": {
     "test": "mocha test",
-    "start":"node app.js"
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",

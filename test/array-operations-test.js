@@ -259,7 +259,7 @@ describe('Array-Operations', function() {
 			assert.deepEqual([4, 5], array.intersection([1, 2, 3, 4, 5], [4, 5, 6, 7, 8]));
 			assert.deepEqual(["b", 1], array.intersection(["A", "b", 1], ["b", 1, 2]));
 			assert.deepEqual(["c"], array.intersection(["a", "b", "c"], ["c", "d", "e"]));
-			assert.deepEqual([1,2,3,4], array.intersection([1,2,2,3,1,2,4], [1,2,3,4,5,1]));
+			assert.deepEqual([1, 2, 3, 4], array.intersection([1, 2, 2, 3, 1, 2, 4], [1, 2, 3, 4, 5, 1]));
 		});
 
 	});
@@ -278,7 +278,7 @@ describe('Array-Operations', function() {
 			assert.deepEqual([1, 2, 3, 4, 5, 6, 7, 8], array.union([1, 2, 3, 4, 5], [4, 5, 6, 7, 8]));
 			assert.deepEqual(["A", "b", 1, 2], array.union(["A", "b", 1], ["b", 1, 2]));
 			assert.deepEqual(["a", "b", "c", "d", "e"], array.union(["a", "b", "c"], ["c", "d", "e"]));
-			assert.deepEqual([1,2,3,4,5], array.union([1,2,2,3,1,2,4], [1,2,3,4,5,1]));
+			assert.deepEqual([1, 2, 3, 4, 5], array.union([1, 2, 2, 3, 1, 2, 4], [1, 2, 3, 4, 5, 1]));
 		});
 
 	});
@@ -297,6 +297,39 @@ describe('Array-Operations', function() {
 			assert.deepEqual([], array.difference([1, 2, 3, 4, 5], [1, 2, 3, 4, 5]));
 			assert.deepEqual(["A"], array.difference(["A", "b", 1], ["b", 1, 2]));
 			assert.deepEqual(["a", "b"], array.difference(["a", "b", "c"], ["c", "d", "e"]));
+		});
+
+	});
+	describe('#flatten()', function() {
+
+		it('should throw type error for invalid array argument', function() {
+			assert.throws(function() {
+				array.flatten({});
+			}, /Invalid argument, Please pass proper array argument/);
+
+			assert.throws(function() {
+				array.flatten({}, 2);
+			}, /Invalid argument, Please pass proper array argument/);
+
+		});
+
+		it('should return flatten array for proper input', function() {
+
+			assert.deepEqual([1, 2, 3, 4, 5, 6, 10, 7, 8], array.flatten([1, 2, [3, 4, [5, 6], 10], 7, 8]));
+			assert.deepEqual([1, 2, 3, 4, {
+				name: 'array'
+			}, 6, 7, 8, 9], array.flatten([1, [2, [3, [4, {
+				name: "array"
+			}, 6], 7], 8], 9]));
+		});
+		it('should return flatten array for proper input for proper depth', function() {
+
+			assert.deepEqual([1, 2, 3, 4, 5, 6, 10, 7, 8], array.flatten([1, 2, [3, 4, [5, 6], 10], 7, 8], 2));
+			assert.deepEqual([1, 2, 3, [4, {
+				name: 'array'
+			}, 6], 7, 8, 9], array.flatten([1, [2, [3, [4, {
+				name: "array"
+			}, 6], 7], 8], 9], 2));
 		});
 
 	});

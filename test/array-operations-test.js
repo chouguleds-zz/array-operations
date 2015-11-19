@@ -317,16 +317,16 @@ describe('Array-Operations', function() {
 
 			assert.deepEqual([1, 2, 3, 4, 5, 6, 10, 7, 8], array.flatten([1, 2, [3, 4, [5, 6], 10], 7, 8]));
 			assert.deepEqual([1, 2, 3, 4, {
-				name: 'mudit'
+				name: 'array'
 			}, 6, 7, 8, 9], array.flatten([1, [2, [3, [4, {
 				name: "array"
-			}, 6], 7], 8], 9], 2));
+			}, 6], 7], 8], 9]));
 		});
 		it('should return flatten array for proper input for proper depth', function() {
 
 			assert.deepEqual([1, 2, 3, 4, 5, 6, 10, 7, 8], array.flatten([1, 2, [3, 4, [5, 6], 10], 7, 8], 2));
 			assert.deepEqual([1, 2, 3, [4, {
-				name: 'mudit'
+				name: 'array'
 			}, 6], 7, 8, 9], array.flatten([1, [2, [3, [4, {
 				name: "array"
 			}, 6], 7], 8], 9], 2));

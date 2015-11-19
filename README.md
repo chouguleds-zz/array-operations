@@ -120,3 +120,12 @@ array.areDistinct ([1, 2, 3, 4, 5], [1, 3, 2, 4, 5]); //true
 array.areDistinct (["hello", "user", 3], ["hello", "user", 4]); // true
 array.areDistinct (["hello", "user", 3], ["hello", "user", 3]); // false
 ```
+
+**`flatten(arr, level(this is optional parameter));`**
+
+Return flatten array.
+```javascript
+array.flatten ([1, 2, [3, 4, [5, 6], 10], 7, 8]); //[1, 2, 3, 4, 5, 6, 10, 7, 8]
+array.flatten ([1, [2, [3, [4, 5, 6], 7], 8], 9], 2); // [1, 2, 3, [4, 5, 6], 7, 8, 9]
+```
+
